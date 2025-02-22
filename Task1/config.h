@@ -1,0 +1,20 @@
+#pragma once
+
+#define LOCALE "en_US.UTF-8"
+
+#define TEXTREF_BEGIN "require '"
+#define TEXTREF_END '\''
+
+#define FILE_EXTENSION ".txt"
+#define FILE_CAPACITY 4096
+#define MAX_FOLDER_PATH 2048
+
+#define EXIT_MALLOC_FAILED 100
+#define EXIT_NOT_A_FOLDER 101
+#define EXIT_CONVERT_FAILED 102
+#define EXIT_FILEREAD_FAILED 103
+#define EXIT_NO_TEXTFILES 104
+#define EXIT_WRONG_DEPENDENCY 105
+
+#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_NONSTDC_NO_DEPRECATE

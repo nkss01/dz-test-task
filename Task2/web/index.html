@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>С.У.С.</title>
+</head>
+
+<body>
+  <h1>С.У.С.</h1>
+  <h2>Система управления студентами</h2>
+  
+  <div id="divUrl">
+    <label for="url">Адрес сервера:</label>
+    <input type="url" name="url" id="urlInput" placeholder="http://localhost:8080/" required />
+    <button type="button" id="urlButton">Начать</button>
+    <div id="urlStatus" class="status-message">Ошибка подключения</div>
+  </div>
+
+  <div id="divScheme" hidden>
+    <p>Отсутствует таблица со студентами:</p>
+    <button type="button" id="schemeButton">Сгенерировать схему данных</button>
+    <p id="schemeStatus" class="status-message">Генерация схемы данных...</p>
+  </div>
+
+  <div id="divActions" hidden>
+    <div id="countStudents">Студентов в базе: x</div>
+    <p>Вот, что можем сделать:</p>
+    <button type="button" id="listActionButton">Вывести список студентов</button>
+    <button type="button" id="addActionButton">Добавить студента</button>
+    <button type="button" id="deleteActionButton">Удалить студента</button>
+
+    <div class="bordered" id="divListAction" hidden>
+	  <label>
+       <input id="listCheckbox" type="checkbox" />
+       Показывать ранее удалённых студентов
+      </label>
+      <button id="listButton" type="button">Получить список студентов</button>
+      <div id="listStatus" class="status-message">Выполнение операции...</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Дата рождения</th>
+            <th>Номер группы</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bordered" id="divAddAction" hidden>
+      <h3>Добавить студента</h3>
+      <label>Имя:</label>
+      <input type="text" placeholder="Иван" required id="nameField" />
+      
+      <label>Фамилия:</label>
+      <input type="text" placeholder="Иванов" required id="surnameField" />
+      
+      <label>Отчество:</label>
+      <input type="text" placeholder="Иванович" required id="middlenameField" />
+      
+      <label>Дата рождения:</label>
+      <input type="date" required id="birthdateField" />
+      
+      <label>Номер группы:</label>
+      <input type="text" placeholder="119-280" required id="groupField" />
+      
+      <button type="button" id="addButton">Создать!</button>
+      <div id="addStatus" class="status-message">Выполнение операции...</div>
+    </div>
+
+    <div class="bordered" id="divDeleteAction" hidden>
+      <h3>Удалить студента</h3>
+      <label>Уникальный номер студента:</label>
+      <input id="deleteField" type="number" placeholder="1234" required />
+      <button id="deleteButton" type="button">Удалить студента</button>
+      <div id="deleteStatus" class="status-message">Выполнение операции...</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

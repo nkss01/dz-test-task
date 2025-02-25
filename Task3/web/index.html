@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Задачи</title>
+</head>
+<body>
+    <header>
+        <input type="text" id="search" placeholder="Поиск по задачам...">
+		<div id="suggestions" class="suggestions"></div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <button id="today">Сегодня</button>
+            <button id="week">На неделю</button>
+            <div class="calendar">
+                <h3>Календарь</h3>
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+            </div>
+            <label>
+                <input type="checkbox" id="falseStatus"> Только невыполненные
+            </label>
+        </aside>
+        <main class="content">
+            <div id="sortContainer">
+                <button id="sortButton" class="sortButton">Сортировать по дате: По возрастанию</button>
+            </div>
+            <div id="taskList"></div>
+            <div id="modal" class="modal">
+                <div class="modalContent">
+                    <div id="modalHeader" class="modalHeader">
+                        <label id="modalTitle"></label>
+                        <div class="checkboxContainer" style="margin-left: auto;">
+                            <input type="checkbox" id="modalCheckbox" class="checkbox" style="display: none;" disabled>
+                            <label for="modalCheckbox" class="checkboxLabel">✔</label>
+                        </div>
+                    </div>
+                    <small id="modalDate" style="display: block; margin-top: 5px; color: #555;"></small>
+                    <hr class="modalDivider">
+                    <div id="modalDescription" class="modalDescription"></div>
+                    <button id="modalDoneButton" class="modalDoneButton">Готово</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

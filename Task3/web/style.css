@@ -1,0 +1,253 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    height: 100%;
+    max-height: 100vh;
+}
+
+header {
+    background-color: #ff3366;
+    padding: 15px;
+    text-align: left;
+}
+
+.suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+header input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    color: #363B4E;
+}
+
+.sidebar button {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #e52d59;
+}
+
+.sidebar .calendar {
+    margin: 20px 0;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dateHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sortContainer {
+    margin-bottom: 10px;
+}
+
+.sortButton {
+    padding: 8px 12px;
+    color: #fff;
+    background-color: #ff3366;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    float: right;
+}
+
+.sortButton:hover {
+    background-color: #e62e59;
+}
+
+#taskList {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.task {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #363B4E;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.task.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkboxLabel {
+    background: #ff3366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.checkboxLabel.checked {
+    background: #ff3366;
+}
+
+.checkboxLabel:not(.checked) {
+    background: #ccc;
+    color: transparent;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modalContent {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    transform: translateY(-30px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.modal.show .modalContent {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modalDivider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.modalDoneButton {
+    background-color: #ff3366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modalDoneButton:hover {
+    background-color: #e52d59;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalDescription {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+#modalDate {
+    display: block;
+    margin-top: 5px;
+    color: #555;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+}

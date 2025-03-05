@@ -39,7 +39,7 @@ void filenode_setdependency(FileNode* source, FileNode* target)
     source->dependencies[source->numdep++] = target;
 }
 
-void filenode_setdata(FileNode* node, struct FileData* filedata)
+void filenode_setdata(FileNode* node, FileData* filedata)
 {
     node->filedata = filedata;
 }

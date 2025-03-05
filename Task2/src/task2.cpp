@@ -2,7 +2,7 @@
 #include "server.hpp"
 #include "config.h"
 
-int start()
+void start()
 {
     const std::string cnStr = DATABASE_CONNECTION;
 

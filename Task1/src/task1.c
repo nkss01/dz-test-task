@@ -155,29 +155,26 @@ int processdir(char* dirpath)
 
 int inputdir(char** dirpath)
 {
-    wchar_t buffer[MAX_FOLDER_PATH];
-    wprintf(L"Enter folder name >> ");
-    fgetws(buffer, MAX_FOLDER_PATH, stdin);
-
-    size_t size = wcstombs(NULL, buffer, 0);
-    if (size == (size_t)-1)
-    {
+    char buffer[MAX_FOLDER_PATH];
+    printf("Enter folder name >> ");
+ 
+    if (fgets(buffer, MAX_FOLDER_PATH, stdin) == NULL)
+	{
         return EXIT_CONVERT_FAILED;
     }
-
-    *dirpath = malloc(size + 1);
-    if (*dirpath == NULL)
-    {
+ 
+    size_t newlen = strlen(buffer);
+    if (newlen > 0 && buffer[newlen - 1] == '\n')
+	{
+        buffer[newlen - 1] = '\0';
+    }
+ 
+    *dirpath = malloc(strlen(buffer) + 1);
+    if (*dirpath == NULL) {
         return EXIT_MALLOC_FAILED;
     }
-
-    wcstombs(*dirpath, buffer, size + 1);
-    size_t newlen = strlen(*dirpath);
-    if (newlen > 0 && (*dirpath)[newlen - 1] == '\n')
-    {
-        (*dirpath)[newlen - 1] = '\0';
-    }
-    return EXIT_SUCCESS;
+ 
+    strcpy(*dirpath, buffer);
 }
 
 int isdir(const char* dirpath)

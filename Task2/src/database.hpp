@@ -57,7 +57,7 @@ public:
 
             if (sql.find("SELECT") != std::string::npos || sql.find("RETURNING") != std::string::npos)
             {
-                pqxx::result res = w.exec(sql, args);
+                pqxx::result res = w.exec_params(sql, args);
                 for (const auto& row : res)
                 {
                     std::vector<std::string> rowData;
@@ -70,7 +70,7 @@ public:
             }
             else
             {
-                w.exec(sql, args);
+                w.exec_params(sql, args);
             }
 
             w.commit();

@@ -15,7 +15,7 @@
 
 #include "textref.h"
 
-typedef struct {
+typedef struct FileData {
     TextReference** textrefs;
     struct FileData** filerefs;
     int refcount;
